@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashok Kumar Kunchala - Technology Leader | AI & LLM Innovator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0066ff;
+            --primary-dark: #0052cc;
+            --secondary: #00d4ff;
+            --dark: #0a0e27;
+            --darker: #050714;
+            --light: #ffffff;
+            --gray: #8892b0;
+            --light-gray: #ccd6f6;
+            --bg-gradient: linear-gradient(135deg, #0a0e27 0%, #151935 100%);
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--darker);
+            color: var(--light);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+            background: var(--bg-gradient);
+            overflow: hidden;
+        }
+
+        .bg-animation::before {
+            content: '';
+            position: absolute;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0.05;
+            animation: rotate 60s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg) translate(-50%, -50%); }
+            to { transform: rotate(360deg) translate(-50%, -50%); }
+        }
+
+        /* Neural Network Animation */
+        .neural-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.3;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 20px 0;
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 15px 0;
+            box-shadow: 0 2px 20px rgba(0, 102, 255, 0.1);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--light-gray);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 100px 40px;
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: clamp(40px, 8vw, 72px);
+            font-weight: 800;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--light) 0%, var(--primary) 50%, var(--secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .tagline {
+            font-size: clamp(18px, 3vw, 24px);
+            color: var(--secondary);
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .hero .intro {
+            font-size: 18px;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 18px;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.6s both;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.4);
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cta-button:hover::before {
+            left: 100%;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 42px;
+            margin-bottom: 50px;
+            text-align: center;
+            background: linear-gradient(135deg, var(--light), var(--primary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            gap: 40px;
+        }
+
+        .about-block {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 102, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .about-block:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(0, 212, 255, 0.3);
+            transform: translateY(-5px);
+        }
+
+        .about-block h3 {
+            color: var(--secondary);
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 60px;
+            width: 50%;
+            padding: 0 40px;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--secondary);
+            border: 4px solid var(--dark);
+            border-radius: 50%;
+            top: 0;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid rgba(0, 102, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: scale(1.02);
+        }
+
+        .timeline-date {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        /* Focus Areas Grid */
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .focus-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(0, 102, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .focus-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--primary) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .focus-card:hover::before {
+            opacity: 0.1;
+        }
+
+        .focus-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--secondary);
+        }
+
+        .focus-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        /* Expertise Tags */
+        .expertise-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .expertise-tag {
+            background: rgba(0, 102, 255, 0.1);
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            padding: 10px 20px;
+            border-radius: 25px;
+            color: var(--light-gray);
+            transition: all 0.3s ease;
+        }
+
+        .expertise-tag:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: var(--secondary);
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            color: var(--light-gray);
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(0, 102, 255, 0.2);
+            border-radius: 10px;
+            color: var(--light);
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: var(--light);
+            border: none;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.4);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .timeline::before {
+                left: 20px;
+            }
+
+            .timeline-item {
+                width: 100%;
+                left: 0 !important;
+                padding-left: 60px;
+                text-align: left !important;
+            }
+
+            .timeline-dot {
+                left: 10px !important;
+                right: auto !important;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-animation">
+        <canvas class="neural-bg" id="neuralCanvas"></canvas>
+    </div>
+
+    <nav id="navbar">
+        <div class="nav-container">
+            <div class="logo">AKK</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#journey">Journey</a></li>
+                <li><a href="#focus">Focus</a></li>
+                <li><a href="#expertise">Expertise</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Ashok Kumar Kunchala</h1>
+            <p class="tagline">Technology Leader | AI & LLM Innovator | Head of Technology at Anvesa</p>
+            <p class="intro">
+                Visionary technology leader with over a decade of experience building intelligent, cloud-native, and AI-driven enterprise solutions. Expert in Microsoft technologies, Azure, and product engineering — leading innovation at the intersection of technology and business.
+            </p>
+            <a href="#contact" class="cta-button">Connect with Me</a>
+        </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title fade-in">About Ashok Kumar Kunchala</h2>
+        <div class="about-content">
+            <div class="about-block fade-in">
+                <h3>🎓 Education</h3>
+                <p>B.Tech in Computer Science from JNTU Kakinada (2009–2013)</p>
+            </div>
+
+            <div class="about-block fade-in">
+                <h3>💼 Early Career (Cognizant, 2014–2017)</h3>
+                <p>Joined Cognizant as a Programmer Analyst Trainee, became a top performer at the Learning Academy, and was assigned to the American Express account in Hyderabad. Consistently earned top ratings and recognition for technical excellence and ownership.</p>
+            </div>
+
+            <div class="about-block fade-in">
+                <h3>🚀 Aureus Tech Systems & Anvesa (2017–Present)</h3>
+                <p>Joined Aureus Tech Systems (founded by Abhishek Pakhira in 2008) as a Senior Software Engineer and evolved to Lead Engineer, Manager – Product Engineering, and currently Head of Technology.</p>
+                <p>Served as Principal Engineer and later Head of Technology overseeing Anvesa's engineering — an AI-enabled, Azure-native e-discovery platform.</p>
+                <p>Received 200 basis points (2%) stake in Anvesa's business for contributions and leadership in product development and innovation.</p>
+            </div>
+
+            <div class="about-block fade-in">
+                <h3>🎯 Current Focus</h3>
+                <p>Leading Anvesa's technology roadmap while driving R&D in AI, LLMs, RAG models, and agentic AI for next-generation business solutions and development acceleration.</p>
+            </div>
+
+            <div class="about-block fade-in">
+                <h3>🔮 Vision</h3>
+                <p>To partner in tech ventures and create scalable, intelligent, and transformative products that bridge AI, enterprise technology, and business innovation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="journey">
+        <h2 class="section-title fade-in">Career Journey</h2>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2014–2017</div>
+                    <h3>Cognizant Technology Solutions</h3>
+                    <p>Programmer Analyst Trainee → Associate</p>
+                    <p>Worked with American Express in Hyderabad; recognized as a key project contributor and consistent top performer.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">2017–Present</div>
+                    <h3>Aureus Tech Systems & Anvesa</h3>
+                    <p>Joined Aureus to lead the creation of Anvesa, an enterprise-grade, cloud-native AI/LLM-powered e-discovery product.</p>
+                    <p>Roles: Senior Software Engineer → Lead Engineer → Manager – Product Engineering → Head of Technology.</p>
+                    <p>Oversaw architecture, AI integrations, Azure cloud infrastructure, and engineering strategy.</p>
+                </div>
+            </div>
+
+            <div class="timeline-item fade-in">
+                <div class="timeline-dot"></div>
+                <div class="timeline-content">
+                    <div class="timeline-date">Post-2023</div>
+                    <h3>Happiest Minds & Anvesa</h3>
+                    <p>Following Aureus's acquisition by Happiest Minds, Anvesa continues as an independent entity, where Ashok leads as Head of Technology, driving AI innovation and business expansion.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="focus">
+        <h2 class="section-title fade-in">Current Focus & Projects</h2>
+        <div class="focus-grid">
+            <div class="focus-card fade-in">
+                <div class="focus-icon">🤖</div>
+                <h3>AI & LLM Solutions</h3>
+                <p>Developing AI and LLM-driven solutions for enterprise and business applications with cutting-edge technology.</p>
+            </div>
+
+            <div class="focus-card fade-in">
+                <div class="focus-icon">🧠</div>
+                <h3>Agentic AI Research</h3>
+                <p>Building intelligent apps and websites with minimal development time through agentic AI systems.</p>
+            </div>
+
+            <div class="focus-card fade-in">
+                <div class="focus-icon">⚙️</div>
+                <h3>Business Automation</h3>
+                <p>Implementing RAG models, code generation, and context-aware AI systems for business process automation.</p>
+            </div>
+
+            <div class="focus-card fade-in">
+                <div class="focus-icon">🌍</div>
+                <h3>Global Ventures</h3>
+                <p>Working on global AI-first ventures — developing next-generation tech platforms in India and the USA.</p>
+            </div>
+
+            <div class="focus-card fade-in">
+                <div class="focus-icon">📈</div>
+                <h3>Anvesa Enhancement</h3>
+                <p>Continuing to enhance Anvesa's product capabilities while exploring new commercial and IP opportunities.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise">
+        <h2 class="section-title fade-in">Expertise & Achievements</h2>
+        <div class="about-content">
+            <div class="about-block fade-in">
+                <p>✨ Principal engineer and Head of Technology behind Anvesa, an Azure-native AI/ML-powered e-discovery platform.</p>
+                <p>💻 Deep expertise in Microsoft stack, .NET, Angular, SQL Server, Azure, Docker, Kubernetes, and Bicep IaC.</p>
+                <p>👥 Experience leading multi-disciplinary engineering teams — developers, testers, and data scientists.</p>
+                <p>🤖 Expertise in AI/LLM, agentic AI, code generation, and RAG architecture.</p>
+                <p>☁️ Skilled in cloud architecture, scalability design, product management, and enterprise engineering strategy.</p>
+            </div>
+        </div>
+        <div class="expertise-grid fade-in">
+            <span class="expertise-tag">Azure Cloud</span>
+            <span class="expertise-tag">AI/LLM</span>
+            <span class="expertise-tag">.NET Core</span>
+            <span class="expertise-tag">Angular</span>
+            <span class="expertise-tag">Docker</span>
+            <span class="expertise-tag">Kubernetes</span>
+            <span class="expertise-tag">RAG Models</span>
+            <span class="expertise-tag">Agentic AI</span>
+            <span class="expertise-tag">SQL Server</span>
+            <span class="expertise-tag">Bicep IaC</span>
+            <span class="expertise-tag">Product Engineering</span>
+            <span class="expertise-tag">Cloud Architecture</span>
+        </div>
+    </section>
+
+    <section id="vision">
+        <h2 class="section-title fade-in">Vision & Future Goals</h2>
+        <div class="about-content">
+            <div class="about-block fade-in">
+                <p>To lead and partner in transformative AI ventures, building intelligent systems that accelerate product development, empower businesses, and redefine digital transformation.</p>
+                <p>Continue advancing Anvesa's innovation arm while expanding into global AI-first ventures in India and the USA.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-title fade-in">Let's Collaborate</h2>
+        <p style="text-align: center; color: var(--gray); margin-bottom: 50px;" class="fade-in">
+            I'm always open to discussing new ideas, partnerships, and opportunities in AI, technology innovation, and venture collaboration. Let's connect and explore how we can create impactful, intelligent solutions together.
+        </p>
+        <form class="contact-form fade-in">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </section>
+
+    <script>
+        // Neural Network Background Animation
+        const canvas = document.getElementById('neuralCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+        
+        const particles = [];
+        const connections = [];
+        const particleCount = 50;
+        const connectionDistance = 150;
+        
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.radius = Math.random() * 2 + 1;
+            }
+            
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                
+                if (this.x < 0 || this.x > canvas.width) this.vx = -this.vx;
+                if (this.y < 0 || this.y > canvas.height) this.vy = -this.vy;
+            }
+            
+            draw() {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 212, 255, 0.5)';
+                ctx.fill();
+            }
+        }
+        
+        for (let i = 0; i < particleCount; i++) {
+            particles.push(new Particle());
+        }
+        
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            
+            for (let i = 0; i < particles.length; i++) {
+                for (let j = i + 1; j < particles.length; j++) {
+                    const dx = particles[i].x - particles[j].x;
+                    const dy = particles[i].y - particles[j].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < connectionDistance) {
+                        ctx.beginPath();
+                        ctx.moveTo(particles[i].x, particles[i].y);
+                        ctx.lineTo(particles[j].x, particles[j].y);
+                        ctx.strokeStyle = `rgba(0, 102, 255, ${1 - distance / connectionDistance})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.stroke();
+                    }
+                }
+            }
+            
+            requestAnimationFrame(animate);
+        }
+        
+        animate();
+        
+        // Navbar scroll effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+        
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+        
+        // Window resize handler
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+        
+        // Form submission
+        document.querySelector('.contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            e.target.reset();
+        });
+    </script>
+</body>
+</html>
